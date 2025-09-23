@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata Rahma Alfiana</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffb6c1, #ff99cc, #ffccf9);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    header {
+      background: rgba(255, 182, 193, 0.3);
+      padding: 20px;
+      box-shadow: 0px 4px 15px rgba(255, 105, 180, 0.3);
+      border-bottom: 3px solid #ff69b4;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #fff0f6;
+      box-shadow: 0px 6px 25px rgba(255, 105, 180, 0.8);
+    }
+    h1 {
+      margin: 15px 0 5px;
+      font-size: 30px;
+      color: #d63384;
+    }
+    .card {
+      background: rgba(255, 240, 246, 0.95);
+      border-radius: 25px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      box-shadow: 0px 6px 25px rgba(255, 105, 180, 0.5);
+      text-align: left;
+      border: 2px solid #ff99c8;
+    }
+    canvas {
+      margin: 20px auto;
+      max-width: 500px;
+      display: block;
+    }
+    .lang-switch {
+      margin: 15px;
+    }
+    .lang-switch button {
+      padding: 8px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #ff80bf;
+      color: white;
+      font-weight: bold;
+    }
+    .lang-switch button:hover {
+      background: #ff4da6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="rahma.jpg" alt="Foto Profil Rahma">
+    <h1 id="title">Rahma Alfiana</h1>
+    <p id="subtitle">SMK Ma’arif NU Tirto | Teknik Komputer & Jaringan</p>
+  </header>
+
+  <!-- Tombol bahasa -->
+  <div class="lang-switch">
+    <button onclick="setLanguage('id')">Indonesia</button>
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('jv')">Basa Jawa</button>
+  </div>
+
+  <div class="card">
+    <h2 id="identitas-title"></h2>
+    <p id="identitas-text"></p>
+  </div>
+
+  <div class="card">
+    <h2 id="pendidikan-title"></h2>
+    <ul id="pendidikan-list"></ul>
+  </div>
+
+  <div class="card">
+    <h2 id="hobi-title"></h2>
+    <p id="hobi-text"></p>
+  </div>
+
+  <div class="card">
+    <h2 id="cita-title"></h2>
+    <p id="cita-text"></p>
+  </div>
+
+  <!-- Projek PAI Visi Keagamaan -->
+  <div class="card">
+    <h2 id="projek-pai-title">Projek PAI - Visi Keagamaan</h2>
+    <p id="projek-pai-text">
+      Mewujudkan pribadi yang beriman, bertakwa, berakhlak mulia, serta mampu mengamalkan ajaran agama 
+      dalam kehidupan sehari-hari untuk mencapai kebahagiaan dunia dan akhirat.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2 id="prestasi-title"></h2>
+    <p id="prestasi-text"></p>
+    <canvas id="prestasiBar"></canvas>
+    <canvas id="prestasiPie"></canvas>
+  </div>
+
+  <div class="card">
+    <h2 id="aktivitas-title"></h2>
+    <p id="aktivitas-text"></p>
+    <canvas id="aktivitasBar"></canvas>
+    <canvas id="aktivitasPie"></canvas>
+    <h3 id="kesimpulan-title"></h3>
+    <p id="kesimpulan-text"></p>
+  </div>
+
+  <!-- Projek Sejarah -->
+  <div class="card">
+    <h2 id="projek-sejarah-title">Projek Sejarah</h2>
+    <p id="projek-sejarah-text">
+      Saya Rahma Alfiana, saya lahir di Pekalongan pada 17 Oktober 2008. 
+      Saya anak ke-2 dari 3 bersaudara. Saya akan menceritakan masa lalu saya. 
+      Ketika SD, saya pernah ikut lomba rebana dan alhamdulillah mendapat juara 3. 
+      Setelah itu,
+      
+      saya melanjutkan SMP di NU Pajomblangan Kedungwuni dan saya juga mondok sambil sekolah. 
+      Saat SMP, saya pernah mengikuti studytour ke WBL bersama teman-teman sekaligus ziarah kubur di area Semarang. 
+      Ketika di WBL, saya mencoba berbagai wahana termasuk rumah hantu. 
+      Saat memasuki wahana rumah hantu, ada teman yang sempat jatuh dari tangga karena kaget melihat patung hantu, 
+      dan ada juga yang pingsan setelah keluar dari wahana tersebut. 
+      Setelah menghabiskan waktu di Wisata Bahari Lamongan, kami pun pulang ke pondok pesantren. 
+      Setelah lulus SMP, 
+      
+      
+      saya memutuskan sekolah di SMK Ma’arif NU Tirto dan bertemu teman-teman baru. 
+      Sekian, terima kasih.
+    </p>
+  </div>
+
+  <!-- Projek BK -->
+  <div class="card">
+    <h2 id="projek-bk-title">Projek BK - Kenangan</h2>
+    <p id="projek-bk-text-1">
+      Masa-masa di TK dan SD adalah masa bermain sambil belajar. Teknologi yang dikenal saat itu mungkin masih sederhana, 
+      seperti permainan di komputer pribadi (PC) atau game konsol sederhana. Refleksi yang dapat diambil adalah masa ini 
+      menumbuhkan rasa penasaran dan ketertarikan awal terhadap teknologi, meskipun masih dalam bentuk hiburan.
+    </p>
+    <p id="projek-bk-text-2">
+      Di masa SMP, ketertarikan terhadap dunia komputer mulai muncul lebih dalam. Rasa penasaran tidak hanya terbatas pada permainan, 
+      tetapi juga cara kerja komputer, perangkat keras (hardware), dan perangkat lunak (software).
+    </p>
+    <p id="projek-bk-text-3">
+      Perjalanan dari TK sampai SMK di jurusan TKJ menunjukkan evolusi ketertarikan dari sekadar bermain menjadi sebuah keahlian profesional. 
+      Pengalaman selama di SMK membuktikan bahwa jurusan TKJ bukan sekadar tentang perbaikan komputer, tetapi juga tentang menciptakan solusi, 
+      membangun sistem, dan beradaptasi dengan perkembangan teknologi yang pesat.
+    </p>
+    <p id="projek-bk-text-4">
+      Dari refleksi ini, dapat disimpulkan bahwa pengalaman masa lalu, sekecil apa pun, dapat menjadi fondasi untuk membentuk minat dan keahlian di masa depan. 
+      Jurusan TKJ memberikan bekal yang kuat untuk siap memasuki dunia kerja yang terus berkembang di era digital ini.
+    </p>
+    <p id="projek-bk-text-5">
+      <b>Pengalaman:</b> Mulai mencoba mengotak-atik komputer, menginstal ulang sistem operasi, atau sekadar memperbaiki masalah kecil yang terjadi. 
+      Meskipun belum memiliki pengetahuan yang mendalam, pengalaman ini menumbuhkan kepercayaan diri bahwa dunia komputer bisa dipelajari secara mandiri.
+    </p>
+  </div>
+
+  <script>
+    const dataLang = {
+      id: {
+        subtitle: "SMK Ma’arif NU Tirto | Teknik Komputer & Jaringan",
+        identitasTitle: "Identitas Pribadi",
+        identitasText: "<b>Nama:</b> Rahma Alfiana<br><b>NISN:</b> 7632<br><b>TTL:</b> Pekalongan, 17 Oktober 2008<br><b>Jenis Kelamin:</b> Perempuan<br><b>Agama:</b> Islam<br><b>Kewarganegaraan:</b> Indonesia<br><b>Alamat:</b> Jalan Tangkil Kulon RT/RW 2/4, Kedungwuni, Pekalongan<br><b>Nomor HP:</b> 085870755593",
+        pendidikanTitle: "Data Pendidikan",
+        pendidikanList: ["SDN : Tangkil Kulon (2021)", "SMP: NU Pajomblangan (2024)", "SMK: Ma’arif NU Tirto", "Jurusan : Teknik Komputer dan Jaringan (TKJ)"],
+        hobiTitle: "Hobi & Keahlian",
+        hobiText: "<b>Hobi:</b> Jalan-jalan<br><b>Keahlian:</b> Dasar-dasar jaringan komputer & kreativitas desain",
+        citaTitle: "Cita-cita & Motivasi",
+        citaText: "<b>Cita-cita:</b> Bos Muda<br><b>Motto Hidup:</b> \"Kegagalan bukan suatu tujuan yg selalu membuat kita gagal, maka bangkitlah untuk mengejar keberhasilan.\"",
+        prestasiTitle: "Prestasi",
+        prestasiText: "Akademik: Fiqih (95), Bahasa Inggris (86), Bahasa Jawa (86)<br>Non-Akademik: -",
+        aktivitasTitle: "Aktivitas Sehari-hari",
+        aktivitasText: "Data aktivitas harian: Jalan-jalan (4 jam), Bantu orang tua (3 jam), Belajar (5 jam), Olahraga (2 jam), Istirahat (10 jam).",
+        kesimpulanTitle: "Kesimpulan:",
+        kesimpulanText: "Sebagian besar waktu dihabiskan untuk <b>istirahat</b>, lalu <b>belajar</b>. Aktivitas lain tetap ada meski porsinya lebih sedikit, jadi keseharian cukup seimbang.",
+        prestasiLabels: ['Fiqih', 'Bahasa Inggris', 'Bahasa Jawa'],
+        aktivitasLabels: ['Jalan-jalan','Bantu orang tua','Belajar','Olahraga','Istirahat']
+      },
+      en: {
+        subtitle: "SMK Ma’arif NU Tirto | Computer & Network Engineering",
+        identitasTitle: "Personal Identity",
+        identitasText: "<b>Name:</b> Rahma Alfiana<br><b>NISN:</b> 7632<br><b>Place & Date of Birth:</b> Pekalongan, October 17, 2008<br><b>Gender:</b> Female<br><b>Religion:</b> Islam<br><b>Nationality:</b> Indonesia<br><b>Address:</b> Jalan Tangkil Kulon RT/RW 2/4, Kedungwuni, Pekalongan<br><b>Phone:</b> 085870755593",
+        pendidikanTitle: "Education Data",
+        pendidikanList: ["Elementary School: SDN Tangkil Kulon (2021)", "Junior High School: NU Pajomblangan (2024)", "Vocational School: Ma’arif NU Tirto", "Major: Computer and Network Engineering (TKJ)"],
+        hobiTitle: "Hobbies & Skills",
+        hobiText: "<b>Hobbies:</b> Travelling<br><b>Skills:</b> Basic computer networking & design creativity",
+        citaTitle: "Aspirations & Motivation",
+        citaText: "<b>Aspiration:</b> Young Entrepreneur<br><b>Motto:</b> \"Failure is not always the end; rise up and chase success.\"",
+        prestasiTitle: "Achievements",
+        prestasiText: "Academic: Fiqih (95), English (86), Javanese (86)<br>Non-Academic: -",
+        aktivitasTitle: "Daily Activities",
+        aktivitasText: "Daily activity data: Travelling (4 hrs), Helping parents (3 hrs), Studying (5 hrs), Exercising (2 hrs), Resting (10 hrs).",
+        kesimpulanTitle: "Conclusion:",
+        kesimpulanText: "Most time is spent on <b>resting</b>, then <b>studying</b>. Other activities remain present though smaller in portion, so daily life is quite balanced.",
+        prestasiLabels: ['Fiqih', 'English', 'Javanese'],
+        aktivitasLabels: ['Travelling','Helping parents','Studying','Exercising','Resting']
+      },
+      jv: {
+        subtitle: "SMK Ma’arif NU Tirto | Teknik Komputer & Jaringan",
+        identitasTitle: "Identitas Pribadi",
+        identitasText: "<b>Nama:</b> Rahma Alfiana<br><b>NISN:</b> 7632<br><b>Panggon & Tanggal Lair:</b> Pekalongan, 17 Oktober 2008<br><b>Jenis Kelamin:</b> Putri<br><b>Agama:</b> Islam<br><b>Kewarganegaraan:</b> Indonesia<br><b>Alamat:</b> Jalan Tangkil Kulon RT/RW 2/4, Kedungwuni, Pekalongan<br><b>Nomor HP:</b> 085870755593",
+        pendidikanTitle: "Data Pendidikan",
+        pendidikanList: ["SDN : Tangkil Kulon (2021)", "SMP: NU Pajomblangan (2024)", "SMK: Ma’arif NU Tirto", "Jurusan : Teknik Komputer lan Jaringan (TKJ)"],
+        hobiTitle: "Hobi & Keahlian",
+        hobiText: "<b>Hobi:</b> Dolan / Jalan-jalan<br><b>Keahlian:</b> Dhasar-dhasar jaringan komputer & kreativitas desain",
+        citaTitle: "Cita-cita & Motivasi",
+        citaText: "<b>Cita-cita:</b> Pengusaha Muda<br><b>Motto Urip:</b> \"Gagal dudu pungkasan, tangi maneh lan nguber kasil.\"",
+        prestasiTitle: "Prestasi",
+        prestasiText: "Akademik: Fiqih (95), Basa Inggris (86), Basa Jawa (86)<br>Non-Akademik: -",
+        aktivitasTitle: "Kegiatan Sehari-hari",
+        aktivitasText: "Data kegiatan saben dina: Dolan (4 jam), Mbantu wong tua (3 jam), Sinau (5 jam), Olahraga (2 jam), Isirahat (10 jam).",
+        kesimpulanTitle: "Kesimpulan:",
+        kesimpulanText: "Mayoritas wektu dienggo kanggo <b>istirahat</b>, banjur <b>sinau</b>. Kegiatan liyane isih ana sanadyan porsine luwih sithik, dadi keseharian cukup seimbang.",
+        prestasiLabels: ['Fiqih', 'Basa Inggris', 'Basa Jawa'],
+        aktivitasLabels: ['Dolan','Mbantu wong tua','Sinau','Olahraga','Isirahat']
+      }
+    };
+
+    // --- Chart instances (global so we can update labels later) ---
+    const prestasiDataValues = [95, 86, 86];
+    const aktivitasDataValues = [4, 3, 5, 2, 10];
+
+    let prestasiBarChart, prestasiPieChart, aktivitasBarChart, aktivitasPieChart;
+
+    function createCharts() {
+      const prestasiBarCtx = document.getElementById('prestasiBar').getContext('2d');
+      prestasiBarChart = new Chart(prestasiBarCtx, {
+        type: 'bar',
+        data: {
+          labels: dataLang['id'].prestasiLabels.slice(), // default labels (will be updated)
+          datasets: [{
+            label: 'Nilai Akademik',
+            data: prestasiDataValues,
+            backgroundColor: ['#ff4da6','#ff80bf','#ffb3d9']
+          }]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+      });
+
+      const prestasiPieCtx = document.getElementById('prestasiPie').getContext('2d');
+      prestasiPieChart = new Chart(prestasiPieCtx, {
+        type: 'pie',
+        data: {
+          labels: dataLang['id'].prestasiLabels.slice(),
+          datasets: [{
+            data: prestasiDataValues,
+            backgroundColor: ['#ff4da6','#ff80bf','#ffb3d9']
+          }]
+        },
+        options: { responsive: true }
+      });
+
+      const aktivitasBarCtx = document.getElementById('aktivitasBar').getContext('2d');
+      aktivitasBarChart = new Chart(aktivitasBarCtx, {
+        type: 'bar',
+        data: {
+          labels: dataLang['id'].aktivitasLabels.slice(),
+          datasets: [{
+            label: 'Jam per Hari',
+            data: aktivitasDataValues,
+            backgroundColor: ['#ff66a3','#ff99c8','#ffb3d9','#ffcce5','#ffe6f0']
+          }]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true, max: 12 } } }
+      });
+
+      const aktivitasPieCtx = document.getElementById('aktivitasPie').getContext('2d');
+      aktivitasPieChart = new Chart(aktivitasPieCtx, {
+        type: 'pie',
+        data: {
+          labels: dataLang['id'].aktivitasLabels.slice(),
+          datasets: [{
+            data: aktivitasDataValues,
+            backgroundColor: ['#ff66a3','#ff99c8','#ffb3d9','#ffcce5','#ffe6f0']
+          }]
+        },
+        options: { responsive: true }
+      });
+    }
+
+    function setLanguage(lang) {
+      // Update text nodes
+      document.getElementById("subtitle").innerHTML = dataLang[lang].subtitle;
+      document.getElementById("identitas-title").innerHTML = dataLang[lang].identitasTitle;
+      document.getElementById("identitas-text").innerHTML = dataLang[lang].identitasText;
+      document.getElementById("pendidikan-title").innerHTML = dataLang[lang].pendidikanTitle;
+      document.getElementById("pendidikan-list").innerHTML = dataLang[lang].pendidikanList.map(item => `<li>${item}</li>`).join("");
+      document.getElementById("hobi-title").innerHTML = dataLang[lang].hobiTitle;
+      document.getElementById("hobi-text").innerHTML = dataLang[lang].hobiText;
+      document.getElementById("cita-title").innerHTML = dataLang[lang].citaTitle;
+      document.getElementById("cita-text").innerHTML = dataLang[lang].citaText;
+      document.getElementById("prestasi-title").innerHTML = dataLang[lang].prestasiTitle;
+      document.getElementById("prestasi-text").innerHTML = dataLang[lang].prestasiText;
+      document.getElementById("aktivitas-title").innerHTML = dataLang[lang].aktivitasTitle;
+      document.getElementById("aktivitas-text").innerHTML = dataLang[lang].aktivitasText;
+      document.getElementById("kesimpulan-title").innerHTML = dataLang[lang].kesimpulanTitle;
+      document.getElementById("kesimpulan-text").innerHTML = dataLang[lang].kesimpulanText;
+
+      // Optional: translate Projek PAI title/text and other static sections
+      // (keep content same meaning, translated)
+      if (lang === 'en') {
+        document.getElementById("projek-pai-title").innerText = "PAI Project - Religious Vision";
+        document.getElementById("projek-pai-text").innerText = "To realize individuals who have faith, piety, noble character, and are able to practice religious teachings in daily life to achieve happiness in this world and the hereafter.";
+        document.getElementById("projek-sejarah-title").innerText = "History Project";
+        document.getElementById("projek-bk-title").innerText = "Counseling Project - Memories";
+      } else if (lang === 'jv') {
+        document.getElementById("projek-pai-title").innerText = "Proyek PAI - Visi Keagamaan";
+        document.getElementById("projek-pai-text").innerText = "Nggawé pribadi sing duwé iman, taqwa, akhlak mulya, lan sanggup ngleksanani ajaran agama ing saben dinane kanggo nggayuh kabungahan dunya lan akhirat.";
+        document.getElementById("projek-sejarah-title").innerText = "Proyek Sejarah";
+        document.getElementById("projek-bk-title").innerText = "Proyek BK - Kenangan";
+      } else {
+        // id
+        document.getElementById("projek-pai-title").innerText = "Projek PAI - Visi Keagamaan";
+        document.getElementById("projek-pai-text").innerText = "Mewujudkan pribadi yang beriman, bertakwa, berakhlak mulia, serta mampu mengamalkan ajaran agama dalam kehidupan sehari-hari untuk mencapai kebahagiaan dunia dan akhirat.";
+        document.getElementById("projek-sejarah-title").innerText = "Projek Sejarah";
+        document.getElementById("projek-bk-title").innerText = "Projek BK - Kenangan";
+      }
+
+      // --- Update chart labels (only labels/text, not data/colors/types) ---
+      if (prestasiBarChart && prestasiPieChart && aktivitasBarChart && aktivitasPieChart) {
+        // prestasi charts
+        prestasiBarChart.data.labels = dataLang[lang].prestasiLabels.slice();
+        prestasiPieChart.data.labels = dataLang[lang].prestasiLabels.slice();
+        // aktivitas charts
+        aktivitasBarChart.data.labels = dataLang[lang].aktivitasLabels.slice();
+        aktivitasPieChart.data.labels = dataLang[lang].aktivitasLabels.slice();
+
+        // update dataset label strings for localized axis label if desired
+        if (lang === 'en') {
+          prestasiBarChart.data.datasets[0].label = 'Academic Scores';
+          aktivitasBarChart.data.datasets[0].label = 'Hours per Day';
+        } else if (lang === 'jv') {
+          prestasiBarChart.data.datasets[0].label = 'Nilai Akademik';
+          aktivitasBarChart.data.datasets[0].label = 'Jam saben Dina';
+        } else {
+          prestasiBarChart.data.datasets[0].label = 'Nilai Akademik';
+          aktivitasBarChart.data.datasets[0].label = 'Jam per Hari';
+        }
+
+        prestasiBarChart.update();
+        prestasiPieChart.update();
+        aktivitasBarChart.update();
+        aktivitasPieChart.update();
+      }
+    }
+
+    // initialize charts then default language
+    createCharts();
+    setLanguage('id'); // default: Bahasa Indonesia
+  </script>
+</body>
+</html>
